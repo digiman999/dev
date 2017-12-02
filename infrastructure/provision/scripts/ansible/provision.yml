@@ -1,0 +1,332 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+
+## Dev Environment
+#    - name: Dev Files
+#      block:
+#        - name: Set DEV_HOME Environment Variable
+#          #command: echo 'export "DEV_HOME=/home/admin/Desktop/dev'" >> $HOME/.bashrc
+#          command: export DEV_HOME=/home/admin/Desktop/dev
+
+    # Continuous Integration
+#    - name: Jenkins
+#      block:
+#        - name: Download Jenkins Yum Repository Definition
+#          get_url: dest=/etc/yum.repos.d/jenkins.repo url=https://pkg.jenkins.io/redhat-stable/jenkins.repo
+#        - name: Add Jenkins GPG Key To RPM Database
+#          command: rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+#        - name: Install Jenkins
+#          yum: name=jenkins state=latest
+#        - name: Enable & Start Jenkins
+#          systemd: name=jenkins enabled=true state=started
+#        - name: Please Manually Activate Jenkins
+#          debug: msg="Copy the code from /var/lib/jenkins/secrets/initialAdminPassword into http://localhost:8080."
+
+
+# Application Deployment
+#    - name: Nexus
+#      block:
+#        - name: Download & Install Nexus
+#          debug: msg="Please manually download from https://www.sonatype.com/oss-thank-you-zip & install to /opt/nexus."
+#        - name: Add Nexus Binaries To Path
+#          lineinfile: path=~/.bashrc  line="export PATH=$PATH:/opt/nexus/bin" insertafter=EOF state=present
+#          lineinfile: path=/home/admin/.bashrc  line="export PATH=$PATH:/opt/nexus/bin" insertafter=EOF state=present
+
+
+
+    #- name: Terraform
+    #  block:
+    #    - name: Install Terraform
+    #      unarchive: remote_src=yes src="https://releases.hashicorp.com/terraform/0.11.0/terraform_0.11.0_linux_amd64.zip?_ga=2.255208264.1720360268.1512043937-1803810719.1512043937" dest=/usr/local/bin
+
+# Version Control
+#    - name: Git
+#      block:
+#        - name: Install Git
+#          yum: name=git state=latest
+
+# Setup OS
+#    - name: Epel Release
+#      block:
+#        - name: Install Epel Release
+#          yum: name=epel-release state=latest
+
+# Basic OS Development Tools
+#     - name:  Curl
+#       block: 
+#         - name: Install Curl
+#           yum: name=curl state=latest
+       
+# Package Managers
+#     - name: Yum
+#       block:   
+#          - name: Install Yum Update
+#            yum: name=* state=latest
+#         - name: Install Yum Utils
+#           yum: name=yum-utils state=latest
+
+#    - name: Npm
+#      block:
+#        - name: Install Npm
+#          yum: name=npm state=latest
+
+# Media Players
+#     - name: Flash Player
+#       block:
+#         - name: Install Flash Player Plugin
+#           yum: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=latest
+
+# Web Servers
+#    - name: Nginx
+#      block:
+#        - name: Install Nginx
+#          yum: name=nginx state=latest
+#        - name: Enable & Start Nginx
+#          systemd: name=nginx enabled=true state=started
+
+# IDEs
+#    - name: PyCharm
+#      block:
+#        - name: Create PyCharm Installation Directory
+#          file: path=/opt/pycharm state=directory mode=0755 recurse=yes owner=admin
+#        - name: Download PyCharm
+#          get_url: url=https://download.jetbrains.com/python/pycharm-community-2017.3.tar.gz dest=/root/Downloads/pycharm
+#        - name: Unpack & Install PyCharm
+#          unarchive: src=https://download.jetbrains.com/python/pycharm-community-2017.3.tar.gz remote_src=yes dest=/opt/pycharm
+
+# Programming Languages
+#    - name: Python 3
+#      block:
+#        - name: Install Python 3.4
+#          yum: name=python34 state=latest
+#        - name: Install Pip For Python 3.4
+#          yum: name=python34-pip state=latest
+#        - name: Install Python 3.4 Development Tools
+#          yum: name=python34-devel state=latest
+#        - name: Install Common Python 3.4 Packages
+#          pip: name={{ item }} state=latest executable=pip3
+#          with_items: [connexion, flask, requests, pyyaml]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # Environment Variables
+#    - block:
+#      - command: echo 'export "DEV_HOME=/home/admin/Desktop/dev'" >> $HOME/.bashrc
+
+    # OS
+#    - block:
+#      - yum: name="GNOME Desktop" state=present
+#      - command: yum groupinstall -y "Development tools"
+#      - command: yum update -y
+#      - yum: name={{item}} state=latest
+#        with_items: [epel-release, flash-plugin]
+
+    # OS Dev Tools
+#    - block:
+#      - yum: name={{item}} state=latest
+#        with_items: [epel-release, gcc, kernel-devel, yum-plugin-fastestmirror, yum-utils]
+
+    # Web Servers
+#    - block:
+#      yum: name=nginx state=latest
+#      systemd: name=nginx enabled=yes state=started
+
+    # Dev Ops
+    # nexus
+
+    # Deployment
+    # Kubernetes & Minikube
+#    - block:
+#      - get_url: url=https://storage.googleapis.com/minikube/releases/v0.22.2/minikube-linux-amd64 dest=/opt/minikube
+
+
+    # Package Managers
+#    - block:
+#      - yum: name={{item}} state=latest
+#        with_items: [autoconf, automake, git-all, libtool, nodejs, yum-plugin-fastestmirror, yum-utils]
+
+   # Java
+#    - block:
+#      - command: wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-#cookie"  http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm && rpm -ivh jdk-8u131-linux-x64.rpm && export JAVA_HOME=/opt/jdk1.8.0_141
+
+    # Messaging
+#    - block:
+#      - yum: name=librdkafka state=latest
+#      - pip: name=pykafka executable=pip3
+
+    # Python3.4
+#    - block:
+#      - yum: name=python34-devel state=latest
+
+    # Messaging
+    # kafka
+#    - block:
+#      - yum: name=librdkafka-devel state=latest
+#      - yum: name=librdkafka state=latest
+#      - pip: name=confluent-kafka executable=pip3
+
+    # Databases
+#    - block:
+#      - docker_container: name=mongo image=mongo exposed_ports=[27017] volume=$DEV_HOME/shared/data/mongo:/data/db
+#      - docker_container: name=redis image=redis exposed_ports=[6379]
+#      - docker_container: name=virtuoso image=virtuoso exposed_ports=[8890, 1111]
+#      - command: docker run --name virtuoso -p 8890:8890 -p 1111:1111 -e SPARQL_UPDATE=true -d tenforce/virtuoso
+#         - docker build --name virtuoso -v $PWD/shared/virtuoso/shared_database:/data -p 8890:8890 -p 1111:1111 -e SPARQL_UPDATE=true -d tenforce/virtuoso
+
+#    - block:
+#      - yum: name={{ item }} state=latest
+#        with_items: [gcc gmake autoconf automake libtool flex bison gperf gawk m4 make openssl-devel readline-devel wget]
+
+
+
+      #git.com/openlink/virtuoso-opensource.git
+
+
+    # Code Reposotories
+#    - block:
+#      - user: name=git password=git
+#      - command: ssh-keygen -t rsa
+#      - cat ~/.ssh/id_rsa.pub | ssh git@remote-server "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
+#       /root/.ssh/id_rsa.pub
+
+
+#    - block:
+#      - docker run --name dev-registry -p 6000:5000 -e STORAGE_PATH=$DEV_HOME/
+#      - docker run -d -p 5000:5000   -e STORAGE_PATH=/registry  -v /tmp/registry:/registry  registry
+
+
+    # Testing
+#    - block:
+#      - pip: name=pytest executable=pip3
+
+
+
+    # Deployment
+    # Containerisation
+#    - block:  # Docker
+#      - command: yum install -y docker
+#      - command: systemctl enable docker
+#      - command: systemctl start docker
+#      - pip: name=docker-py
+#      - pip: name=docker-py executable=pip3
+#      - docker_image: name={{ item }}
+#        with_items: [nginx, redis]
+
+    # Container Orchestration
+#    - block: # Kubernetes
+#      - command: cd /root/Downloads && curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
+#      - command: curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.20.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+
+    # Service Discovery
+#    - block:  # consul
+#      - docker run --name consul -d consul agent -dev
+#      - docker_container: name=consul image=consul exposed_ports=[8500]
+
+
+
+   # OS Virtualisation
+#    - block:
+#      - command: wget -O /etc/yum.repos.d/virtualbox.repo http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+#      - command: yum install -y VirtualBox-5.1
+
+
+
+
+# Virtualisation
+
+#  - name: Setup Virtualisation
+#    command: "{{ item }}"
+#    with_items:
+#      - rpm -i http://download.virtualbox.org/virtualbox/5.1.14/VirtualBox-5.1-5.1.14_112924_el7-1.x86_64.rpm
+#	- wget -O /etc/yum.repos.d/virtualbox.repo http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo & yum install -y VirtualBox-5.1
+
+#      - rpm -i https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.rpm
+#      - vagrant box add --name centos7minimal https://github.com/holms/vagrant-centos7-box/releases/download/7.1.1503.001/CentOS-7.1.1503-x86_64-netboot.box
+#      - echo Virtualization done
+
+
+
+
+
+
+
+
+
+
+    # Programming Languages
+    # Python
+#    - block:
+      # Python3
+#      - block:
+#        - command: cd ~/Downloads
+#        - get_url: url=https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz dest=/home/admin/Downloads
+#	- command: tar xvf Python-3.*
+#        - command: cd Python-3.*
+#	- command: ./configure --prefix=/opt/python3
+#	- command: make
+#	- command: make install
+#	- command: ln -s /opt/python3/bin/python3 /usr/bin/python3
+#	- command: cd ..
+#	- command: rm -rf Python-3.*
+#       - command: yum install -y python34-pip && pip3 install --upgrade pip
+#        - command: yum install -y python34-setuptools
+#        - command: pip3 install {{ item }}
+#          with_items: [docopt, jupyter, latex, lxml, pymongo, requests, schema]
+
+    # Audio Development
+#    - block:
+#      - yum: name={{ item }} state=latest
+#        with_items: [portaudio, portaudio-devel, libasound.so.2] # also need libsound.so.0
+#      - command: pip3 install pyaudio
+
+    # Web Development
+    # Frontend Frameworks
+#    - block:
+#      - command: npm install -g angular-cli
+
+    # Web Frameworks
+#    - block:
+#      - command: pip3 install flask
+
+# IDEs
+#    - block:
+#      # atom
+#      - command: yum localinstall https://github.com/atom/atom/releases/download/v1.17.0/atom.x86_64.rpm
+      # swagger
+#      - docker_image: name=swaggerapi/swagger-editor
+
+
+  # Messaging
+#    - block:
+#        - yum: name=erlang state=latest
+#        - yum: name=rabbitmq-server state=latest
+#	 - service: name=rabbitmq-server.service enabled=yes state=started
+#         - command: rabbitmq-plugins enable rabbitmq_management
+#         - command: rabbitmq-server
+
+
+    #Setup Storage
+#    - block:
+#        - file: path=$SERVER_CONTENT state=directory owner=admin mode=0755
+
+    #Setup Users
+#    - block:
+#        - user: name=test3 system=yes password=admin group=admin
+
+
+# Firefox Bookmarks
+#   Jenkins http://localhost:8080

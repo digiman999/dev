@@ -1,0 +1,14 @@
+
+
+
+  - block:
+    command: echo "export {{ item }}" >> ~/.bashrc
+    with_items:
+      - DEV_HOME=/home/admin/Desktop/dev
+      - JAVA_HOME=/opt/jdk1.8.0_141/bin/java
+      - PATH=$PATH:/opt/nexus/bin
+      - PATH=$PATH:/opt/drill/bin
+      - PATH=$PATH:/opt/zookeeper/bin
+      #- "export PATH="'$PATH'":/opt/demo" >> ~/.bashrc
+
+
