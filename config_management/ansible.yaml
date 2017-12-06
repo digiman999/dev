@@ -1,14 +1,19 @@
 
 
 
-  - block:
-    command: echo "export {{ item }}" >> ~/.bashrc
-    with_items:
-      - DEV_HOME=/home/admin/Desktop/dev
-      - JAVA_HOME=/opt/jdk1.8.0_141/bin/java
-      - PATH=$PATH:/opt/nexus/bin
-      - PATH=$PATH:/opt/drill/bin
-      - PATH=$PATH:/opt/zookeeper/bin
-      #- "export PATH="'$PATH'":/opt/demo" >> ~/.bashrc
-
+# Media Players
+    - name: Adobe Repository
+      block:
+        - name: Install Nux Repository
+          yum: name="http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm" state=latest
+        - name: Install Adobe Repository For Media Player
+          yum: name="http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm" state=latest
+        - name: Install Flash Player
+          yum: name=flash-player state=latest
+        - name: Install VLC Player
+          yum: name=vlc state=latest
+        - name: Install SmPlayer
+          yum: name=smplayer state=latest
+        - name: Install Handbrake
+          yum: name=HandBrake-{gui,cli} state=latest
 

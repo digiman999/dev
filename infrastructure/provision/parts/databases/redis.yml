@@ -1,0 +1,6 @@
+#    - name: Redis
+#      block:
+#        - name: Install Redis
+#          yum: name=redis state=latest
+#        - name: Enable & Start Redis Service
+#          service: name=redis enabled=yes state=started

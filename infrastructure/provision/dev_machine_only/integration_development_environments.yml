@@ -1,0 +1,9 @@
+# IDEs
+#    - name: PyCharm
+#      block:
+#        - name: Create PyCharm Installation Directory
+#          file: path=/opt/pycharm state=directory mode=0755 recurse=yes owner=admin
+#        - name: Download PyCharm
+#          get_url: url=https://download.jetbrains.com/python/pycharm-community-2017.3.tar.gz dest=/root/Downloads/pycharm
+#        - name: Unpack & Install PyCharm
+#          unarchive: src=https://download.jetbrains.com/python/pycharm-community-2017.3.tar.gz remote_src=yes dest=/opt/pycharm
