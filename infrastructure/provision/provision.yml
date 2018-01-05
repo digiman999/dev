@@ -35,7 +35,7 @@
         #  pip: name=confluent-kafka state=latest exec=pip3
 
 
-# 
+#
 
 # Virtualisation
 #    - name: Docker
